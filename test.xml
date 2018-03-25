@@ -1,0 +1,12 @@
+<channels>
+    <channel>
+        <title>Liga.net</title>
+        <url>http://news.liga.net/all/rss.xml</url>
+        <items>
+            <path>//item</path>
+            <pathToTitle>./title/text()</pathToTitle>
+            <pathToDescription>./description/text()</pathToDescription>
+            <pathToUrl>./link/text()</pathToUrl>
+        </items>
+    </channel>
+</channels>
