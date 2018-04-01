@@ -1,16 +1,18 @@
-sudo: false
 language: python
 python:
-  - "3.5"
   - "3.6"
-  # PyPy versions
-  - "pypy3.5"
 # command to install dependencies
 install:
-  - pip install .
+  - pip install sty
+  - pip install lxml
+  - pip install pipenv
+  - pipenv lock
+  - pipenv install
   - pip install codecov
-  - pip install -r requirements.txt
+  - pip install pytest pytest-cov
+  - pip install pep8
 # command to run tests
-script: nosetests --cover-branches --with-coverage --cover-erase --cover-package=src
+script:
+  - pytest --cov=./
 after_success:
   - codecov
