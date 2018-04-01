@@ -13,7 +13,7 @@ class News:
         return compaire(cmp1, cmp2)
 
     def __str__(self):
-        s = "News '{title}' from url: {url}\n".format(title = self.title, url = self.url)
+        s = "News '{title}' from url: {url}\n".format(title=self.title, url=self.url)
         # s += "Description: {description}".format(description = self.description)
         return s
 
