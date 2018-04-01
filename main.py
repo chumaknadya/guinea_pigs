@@ -4,7 +4,7 @@ import src
 from src import Duplication
 from src import fileProcessor
 
-channels = src.read_channels_from_file("test.xml")
+channels = src.read_channels_from_file("resources/test.xml")
 to_check = src.News("МИД Италии выразил протест Франции",
                 " Министерство выразило протест в связи с инцидентом, в ходе которого французская пограничная полиция ворвалась",
                 "http://news.liga.net/news/world/14922757-glava_mid_ispanii_predlozhil_dvoynoy_podkhod_k_otnosheniyam_s_rf.htm")

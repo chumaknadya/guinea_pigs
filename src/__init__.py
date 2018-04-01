@@ -1,5 +1,5 @@
 from .news import News
 from .RSSChannel import RSSChannel
 from .fileProcessor import *
-from .Duplication import Duplication
+from .duplication import Duplication
 from .shingle import *
