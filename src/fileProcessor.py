@@ -1,6 +1,8 @@
 from lxml import etree
 from .RSSChannel import RSSChannel
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
+
 
 
 def read_xml_file(filename):
@@ -23,7 +25,7 @@ def read_channels_from_file(filename):
     return [RSSChannel(channel) for channel in channels]
 
 
-def write_results_to_file(duplicates_list):
+def get_xml_form_duplicates_list(duplicates_list):
     # create the file structure
     data = ET.Element('results')
     duplicates = ET.SubElement(data, 'duplicates')
@@ -35,9 +37,11 @@ def write_results_to_file(duplicates_list):
         percent.text = str(d.duplication_percentage)
 
     # create a new XML file with the results
+    result = minidom.parseString(ET.tostring(data)).toprettyxml(indent="   ")
+    return result
 
-    tree = ET.ElementTree(data)
-    tree.write("results.xml",
-               xml_declaration=True,
-               encoding='utf-8',
-               method="xml")
+
+def write_results_to_file(duplicates_list):
+    result = get_xml_form_duplicates_list(duplicates_list)
+    file = open("results.xml", "w")
+    file.write(result)
