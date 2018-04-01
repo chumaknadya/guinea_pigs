@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
 
+
 def read_xml_file(filename):
     file = open(filename)
     soup = etree.parse(file)
@@ -36,7 +37,6 @@ def get_xml_form_duplicates_list(duplicates_list):
         percent.text = str(d.duplication_percentage)
 
     # create a new XML file with the results
-
     result = minidom.parseString(ET.tostring(data)).toprettyxml(indent="   ")
     return result
 
