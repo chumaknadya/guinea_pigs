@@ -40,6 +40,6 @@ def get_xml_form_duplicates_list(duplicates_list):
 
 def write_results_to_file(duplicates_list):
     result = get_xml_form_duplicates_list(duplicates_list)
-    #result = minidom.parseString(result).toprettyxml(indent="   ")
+    result = minidom.parseString(result).toprettyxml(indent="   ")
     file = open("results.xml", "w")
-    file.write(str(result))
+    file.write(result)

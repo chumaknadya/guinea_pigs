@@ -7,9 +7,9 @@ from src import News
 from src import file_processor
 
 channels = src.read_channels_from_file("resources/test.xml")
-to_check = src.News("МИД Италии выразил протест Франции",
-                "http http http http http http http http http http http http http http http http ",
-                "http://news.liga.net/news/world/14922757-glava_mid_ispanii_predlozhil_dvoynoy_podkhod_k_otnosheniyam_s_rf.htm")
+to_check = src.News("title",
+                "Людей собираются эвакуировать из Думы в Идлиб на северо-западе Сирии. Однако точная дата эвакуации не называется'",
+                "url")
 
 duplications = []
 for c in channels:
@@ -20,5 +20,4 @@ for c in channels:
             if duplication_percent > 10:
                 duplications.append(Duplication(n, duplication_percent))
 
-duplications.append(Duplication(News("t", "d", "url"), 15))
 file_processor.write_results_to_file(duplications)
