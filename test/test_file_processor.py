@@ -11,7 +11,7 @@ class TestFileProcessorMethods(unittest.TestCase):
         self.assertTrue(file_processor.read_xml_file('resources/test.xml'))
 
     def test_read_channels_from_file_file_does_not_exist(self):
-        self.assertRaises(FileNotFoundError, file_processor.read_channels_from_file, 'resources/test.xml')
+        self.assertRaises(FileNotFoundError, file_processor.read_channels_from_file, 'resources/teee.xml')
         self.assertRaises(FileNotFoundError, file_processor.read_channels_from_file, '')
 
     def test_read_channels_from_file(self):
