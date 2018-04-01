@@ -4,7 +4,9 @@ from lxml import etree
 from src import News
 
 HEADERS = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:45.0) Gecko/20100101 Firefox/45.0'
+        'User-Agent': 'Mozilla/5.0 (Macintosh; '
+                      'Intel Mac OS X 10.9; '
+                      'rv:45.0) Gecko/20100101 Firefox/45.0'
     }
 
 
@@ -30,8 +32,8 @@ class RSSChannel:
                                       item.xpath(self.item_url)[0]))
             print(self.news)
 
-
     def __str__(self):
-        return "RSS {title} from url: {url}".format(title = self.title, url = self.url)
+        return "RSS {title} from url: {url}"\
+            .format(title=self.title, url=self.url)
 
     __repr__ = __str__

@@ -2,6 +2,7 @@ from lxml import etree
 from .RSSChannel import RSSChannel
 import xml.etree.ElementTree as ET
 
+
 def read_xml_file(filename):
     file = open(filename)
     soup = etree.parse(file)
@@ -36,4 +37,7 @@ def write_results_to_file(duplicates_list):
     # create a new XML file with the results
 
     tree = ET.ElementTree(data)
-    tree.write("results.xml", xml_declaration=True, encoding='utf-8', method="xml")
+    tree.write("results.xml",
+               xml_declaration=True,
+               encoding='utf-8',
+               method="xml")
