@@ -2,7 +2,7 @@ import sys
 
 import src
 from src import Duplication
-from src import fileProcessor
+from src import file_processor
 
 channels = src.read_channels_from_file("resources/test.xml")
 to_check = src.News("МИД Италии выразил протест Франции",
@@ -17,4 +17,4 @@ for c in channels:
         if duplication_percent > 10:
             duplications.append(Duplication(n, duplication_percent))
 
-fileProcessor.write_results_to_file(duplications)
+file_processor.write_results_to_file(duplications)

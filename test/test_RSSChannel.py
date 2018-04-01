@@ -2,12 +2,12 @@ import unittest
 
 from src import RSSChannel
 from src import news
-from src import fileProcessor
+from src import file_processor
 
 class TestRSSChannelMethods(unittest.TestCase):
 
     def setUp(self):
-        self.channels = fileProcessor.read_channels_from_file('resources/test.xml')
+        self.channels = file_processor.read_channels_from_file('resources/test.xml')
 
     def test_loadNews(self):
         self.channels[0].load_news()
