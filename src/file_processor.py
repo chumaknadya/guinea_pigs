@@ -26,7 +26,6 @@ def read_channels_from_file(filename):
 
 
 def get_xml_form_duplicates_list(duplicates_list):
-    # create the file structure
     data = ET.Element('results')
     duplicates = ET.SubElement(data, 'duplicates')
     for d in duplicates_list:
@@ -35,13 +34,12 @@ def get_xml_form_duplicates_list(duplicates_list):
         link.text = d.original.url
         percent = ET.SubElement(duplicate, 'duplication_percentage')
         percent.text = str(d.duplication_percentage)
-
-    # create a new XML file with the results
-    result = minidom.parseString(ET.tostring(data)).toprettyxml(indent="   ")
+    result = ET.tostring(data)
     return result
 
 
 def write_results_to_file(duplicates_list):
     result = get_xml_form_duplicates_list(duplicates_list)
+    #result = minidom.parseString(result).toprettyxml(indent="   ")
     file = open("results.xml", "w")
-    file.write(result)
+    file.write(str(result))
