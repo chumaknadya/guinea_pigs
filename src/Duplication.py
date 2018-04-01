@@ -5,7 +5,7 @@ class Duplication:
 
     def __init__(self, original, duplication_percentage):
         self.original = original
-        self.duplication_percentage = duplication_percentage
+        self.duplication_percentage = int(duplication_percentage)
 
     def __str__(self):
         s = "duplicates " + self.original.title + \
